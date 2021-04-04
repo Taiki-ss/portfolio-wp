@@ -9,11 +9,11 @@
 // scssファイル読み込み
 // --------------------------------------
 @import "setting/reset"; //resetCSS
-// @import 'setting/function'; //functions
 @import "setting/config"; //基本設定
-
-@import "mixin/layout"; //flex grid
-
-@import "module/gnav"; //global-nav
-
-// @import 'page/top'; //topページ
+@import "module/header"; //header
+@import "module/footer"; //footer
+@import "module/scroll-arrow"; //右下のスクロール表記
+@import "page/top"; //topページ
+@import "page/history"; //history
+@import "page/single"; // 個別記事
+@import "page/404"; //404ページ

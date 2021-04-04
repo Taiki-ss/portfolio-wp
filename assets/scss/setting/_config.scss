@@ -13,6 +13,12 @@ $color-white: #ffffff;
 
 $font-color: #333333; //基本のfont-color
 
+$bg-normal: #f0f0f0;
+$bg-second: #464646;
+$color-footer: #241e52;
+$history-bg-color: #222;
+$accent-color: rgb(225, 180, 0);
+
 // ------------------------------
 // ２font
 // ------------------------------
@@ -22,80 +28,43 @@ $font-f-main: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイ�
 
 // 全てのタグに適用
 * {
-  color: $font-color;
+  color: $color-white;
   font-size: 16px; //基本サイズ
+  font-family: $font-f-main;
+  letter-spacing: 0.1em;
+}
+
+body {
+  background-color: #222;
 }
 
 // ------------------------------
 // ３レスポンシブ
 // ------------------------------
-//スマホファースト
-$tab: 361px; //以上でタブレット
-$pc: 769px; //以上でPC
-$pc-l: 1367px; //以上で大サイズPC
+
+// PCファースト（1920pxまで検討）
+$tab: 1000px; //以下でtab
+$sm: 440px; //以下でsm
 
 @mixin tab {
-  @media screen and (min-width: $tab) {
+  @media screen and (max-width: $tab) {
     @content;
   }
 }
-@mixin pc {
-  @media screen and (min-width: $pc) {
-    @content;
-  }
-}
-@mixin pc-l {
-  @media screen and (min-width: $pc-l) {
+@mixin sm {
+  @media screen and (max-width: $sm) {
     @content;
   }
 }
 
 .container {
-  width: auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  width: clamp(320px, 80%, 1244px);
   @include tab {
-    width: clamp($tab, 90%, $pc);
+    width: clamp($sm, 80%, $tab);
   }
-  @include pc {
-    width: clamp($pc, 80%, $pc-l);
-  }
-  @include pc-l {
-    max-width: 1224px;
+  @include sm {
+    width: auto;
+    padding: 0 20px;
   }
 }
-
-//PCファースト（1920pxまで検討）
-// $pc: 1366px; //以下でpc
-// $tab: 768px; //以下でtab
-// $sm: 360px; //以下でsm
-
-// @mixin pc {
-//   @media screen and (max-width: $pc){
-//     @content;
-//   }
-// }
-// @mixin tab {
-//   @media screen and (max-width: $tab){
-//     @content;
-//   }
-// }
-// @mixin sm {
-//   @media screen and (max-width: $sm){
-//     @content;
-//   }
-// }
-
-// .container {
-//   width: clamp(320px,80%, 1244px);
-//   @include pc {
-//     width: clamp($tab, 80%, $pc);
-//   }
-//   @include tab {
-//     width: clamp($sm, 80%, $tab);
-//   }
-//   @include sm {
-//     width: auto;
-//     padding: 0 20px;
-//   }
-
-// }

@@ -1,0 +1,90 @@
+.scroll-arrow {
+  position: fixed;
+  right: 0;
+  bottom: 15%;
+  z-index: 10;
+  padding-bottom: 8px;
+  width: 140px;
+  font-size: 12px;
+  color: $color-white;
+  overflow: hidden;
+  transition: 0.4s;
+  @include tab {
+    display: none;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 140px;
+    height: 1px;
+    background-color: $color-white;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -60px;
+    z-index: 11;
+    width: 60px;
+    height: 1px;
+    background-color: $accent-color;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  &__arrow {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: 6px;
+      width: 6px;
+      height: 6px;
+      border-top: solid 1px $color-white;
+      border-right: solid 1px $color-white;
+      transform: rotate(45deg);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: -16px;
+      top: 6px;
+      width: 6px;
+      height: 6px;
+      border-top: solid 1px $accent-color;
+      border-right: solid 1px $accent-color;
+      transform: rotate(45deg);
+      animation-name: shake;
+      animation-duration: 0.8s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &.js-active {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    right: -14px;
+  }
+  50% {
+    right: -16px;
+  }
+  100% {
+    right: -14px;
+  }
+}
+@keyframes move {
+  0% {
+    left: -60px;
+  }
+  100% {
+    left: 140px;
+  }
+}

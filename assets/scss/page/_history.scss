@@ -1,0 +1,414 @@
+.scroll-container {
+  display: flex;
+  width: 500vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  @include tab {
+    position: static;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+  }
+  &__box {
+    width: 100vw;
+    height: 100vh;
+    @include tab {
+      height: auto;
+    }
+  }
+}
+
+.progress-bar {
+  position: fixed;
+  z-index: 10;
+  bottom: 10%;
+  left: 50%;
+  width: 60%;
+  height: 2px;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  transform: translateX(-50%);
+  border-radius: 4px;
+  overflow: hidden;
+  @include tab {
+    display: none;
+  }
+  &__inside {
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+}
+
+.history {
+  position: relative;
+  padding-top: 100px;
+  z-index: 0;
+  color: #fff;
+  background: $history-bg-color;
+  @include tab {
+    margin-top: 24px;
+  }
+  &__title {
+    position: relative;
+    z-index: 10;
+    font-size: 40px;
+    color: $color-white;
+    @include sm {
+      font-size: 24px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 2px;
+      background-color: $accent-color;
+    }
+  }
+  &__text {
+    color: $color-white;
+    letter-spacing: 0.1em;
+    line-height: 1.6em;
+  }
+  &__accent {
+    color: $accent-color;
+  }
+}
+
+.history01 {
+  display: flex;
+  position: relative;
+  padding-left: 24px;
+  color: #fff;
+  background: $history-bg-color;
+  @include tab {
+    flex-direction: column;
+  }
+  &::before {
+    position: absolute;
+    content: "HISTORY";
+    left: 48px;
+    top: 16px;
+    z-index: 5;
+    font-size: 72px;
+    font-weight: bold;
+    color: transparent;
+    text-shadow: 0 0 6px $accent-color;
+    letter-spacing: 0.1em;
+    @include tab {
+      top: 64px;
+      font-size: 56px;
+    }
+    @include sm {
+      left: 32px;
+      font-size: 40px;
+    }
+  }
+  &__left {
+    width: 100%;
+  }
+  &__right {
+    width: 100%;
+  }
+  &__inner {
+    padding: 32px;
+  }
+  &__img-wrapper {
+    margin-top: 24px;
+  }
+  &__img {
+    width: 80%;
+    height: 100%;
+    max-width: 400px;
+    object-fit: cover;
+    box-shadow: 0 0 16px 0 gray;
+    @include tab {
+      width: 50%;
+    }
+    @include sm {
+      width: 100%;
+    }
+  }
+}
+
+.history02 {
+  display: flex;
+  position: relative;
+  color: #fff;
+  background: $history-bg-color;
+  @include tab {
+    flex-direction: column;
+    padding-left: 24px;
+  }
+  &__left {
+    width: 100%;
+  }
+  &__right {
+    width: 100%;
+  }
+  &__inner {
+    padding: 32px;
+  }
+  &__link {
+    display: block;
+    margin-top: 24px;
+    width: 50%;
+    max-width: 400px;
+    transition: all 0.4s;
+    filter: grayscale(100%);
+    transform: scale(0.9, 0.9);
+    @include tab {
+      filter: none;
+      transform: none;
+    }
+    @include sm {
+      width: 100%;
+    }
+    &:hover {
+      filter: grayscale(0%);
+      transform: scale(1, 1);
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    box-shadow: 0 0 16px 0 gray;
+  }
+}
+
+.history03 {
+  position: relative;
+  color: #fff;
+  @include tab {
+    padding-left: 24px;
+  }
+  &::before {
+    position: absolute;
+    content: "STUDY";
+    left: 48px;
+    top: 16px;
+    z-index: 5;
+    font-size: 72px;
+    font-weight: bold;
+    color: transparent;
+    text-shadow: 0 0 6px $accent-color;
+    letter-spacing: 0.1em;
+    @include tab {
+      top: 64px;
+      font-size: 56px;
+    }
+    @include sm {
+      left: 32px;
+      font-size: 40px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    @include tab {
+      flex-direction: column;
+    }
+  }
+  &__left {
+    width: 100%;
+    padding: 32px;
+  }
+  &__right {
+    width: 100%;
+    padding: 32px;
+  }
+}
+
+.moment {
+  display: block;
+  margin-top: 24px;
+  width: 50%;
+  transition: all 0.4s;
+  filter: grayscale(100%);
+  transform: scale(0.9, 0.9);
+  &:hover {
+    filter: grayscale(0%);
+    transform: scale(1, 1);
+  }
+  @include tab {
+    filter: none;
+    transform: none;
+  }
+  @include sm {
+    width: 100%;
+  }
+  &__img {
+    width: 100%;
+    box-shadow: 0 0 16px 0 gray;
+  }
+}
+
+.mini-app {
+  display: block;
+  margin-top: 24px;
+  width: 50%;
+  transition: all 0.4s;
+  filter: grayscale(100%);
+  transform: scale(0.9, 0.9);
+  &:hover {
+    filter: grayscale(0%);
+    transform: scale(1, 1);
+  }
+  @include tab {
+    filter: none;
+    transform: none;
+  }
+  @include sm {
+    width: 100%;
+  }
+  &__wrapper {
+  }
+  &__title {
+    color: $color-white;
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 0 16px 0 gray;
+  }
+}
+
+.history04 {
+  position: relative;
+  color: #fff;
+  @include tab {
+    padding-left: 24px;
+  }
+  &::before {
+    position: absolute;
+    content: "WORKS";
+    left: 48px;
+    top: 16px;
+    z-index: 5;
+    font-size: 72px;
+    font-weight: bold;
+    color: transparent;
+    text-shadow: 0 0 6px $accent-color;
+    letter-spacing: 0.1em;
+    @include tab {
+      top: 64px;
+      font-size: 56px;
+    }
+    @include sm {
+      left: 32px;
+      font-size: 40px;
+    }
+  }
+
+  &__inner {
+    padding: 32px;
+  }
+}
+
+.works {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: fixed;
+  bottom: 120px; // footerのheightが100px
+  left: 50%;
+  z-index: 100;
+  width: 90%;
+  height: 60vh;
+  transition: 1s;
+  transform: translateX(100%);
+  font-size: 50px;
+  @include tab {
+    justify-content: space-between;
+    position: static;
+    padding: 40px 20px 60px 40px;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+  &.js-active {
+    transform: translateX(-50%);
+  }
+}
+
+.work {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  margin-right: 32px;
+  @include tab {
+    margin: 0 20px 40px;
+  }
+  &__link {
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0 0 4px 4px gray;
+    transition: 0.3s;
+    @include tab {
+      width: 100%;
+      height: 100%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0);
+      transition: 0.3s;
+      @include tab {
+        background-color: rgba($color: #000000, $alpha: 0.3);
+      }
+    }
+    &:hover {
+      &::before {
+        background-color: rgba($color: #000000, $alpha: 0.7);
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    opacity: 0;
+    transition: 0.3s;
+    @include tab {
+      opacity: 1;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__date {
+    display: block;
+    margin-top: 16px;
+    @include tab {
+      margin-top: 8px;
+    }
+  }
+}
